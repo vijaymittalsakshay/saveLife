@@ -1,16 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="project/styles/mystyle.css" rel="stylesheet"/>
 
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    
-</head>
-<body>
-    
-</body>
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.all.min.js"></script>
+
+        <!--JS FILE-->
+        <script src="project/scripts/app/app.js"></script>
+        <script src="project/scripts/app/jquery.validate.js"></script>
+        <script src="project/scripts/app/login.js"></script>
+        <script src="project/scripts/app/signup.js"></script>
+        <style>
+            #login-view .km-content { background-color: #FFFFFF}
+        </style>
+    </head>
+    <body>
+        <!--Login view Page-->
+        <div data-role="view" id="login-view" data-model="app.loginService.viewModel">
+            <h2></h2>
+            <div class="ldiv" style="width:58%;">
+                <img src="project/styles/image/savelife_logo.jpg" style="width:180px;height:120px;">
+            </div>
+            <form id="loginForm">
+                <div class="ldiv">
+                    <p>
+                        <input type="text" name="lname" id="lname" class="txtb" placeholder="Username"/>
+                    </p>
+                    <p>
+                        <input type="password" name="lpwd" id="lpwd" class="txtb" placeholder="Password"/>
+                    </p>
+                    <p>
+                        <input type="button" name="lsubmit" id="lsubmit" value="Submit" data-bind="click:loginSubmit" class="lbtn"/>
+                    </p>
+                    <!--  <p>
+                    <a href="" style="margin-left:142px;text-decoration:none">Forgot Password</a>
+                    </p>-->
+                    <p style="margin-left:35px;margin-top:30px;">
+                        Don't have an account?
+                        <a href="#signup-view" style="font-size:18px;text-decoration:none">Signup</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!--Signup view Page-->
+
+        <style>
+            #signup-view .km-content { background-color: #FFFFFF}
+        </style>
+
+        <div data-role="view" id="signup-view" data-title="New User Register" data-model="app.signupService.viewModel" data-show="app.signupService.viewModel.show">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#FFFFFF">
+                    <a href="#login-view">
+                        <div style="float:left;width:60px;height:50px;background-image:url('project/styles/image/back-logo.jpg');background-size:60px 50px;background-repeat:no-repeat"></div> 
+                    </a>
+                    <span data-role="view-title" style="font-size:17px;margin-left:-30px;"></span>
+                </div>
+            </div>
+
+            <div data-role="content">
+                <form id="signupForm">
+                    <div class="ldiv" style="margin-top:25px;">
+                        <p>
+                            <input type="text" name="sname" id="sname" class="txtb" placeholder="Username" orignal-title="Username" required/>
+                        </p>
+                        <p>
+                            <input type="number" name="smobile" id="smobile" class="txtb" placeholder="Mobile Number" orignal-title="Mobile Number" required/>
+                        </p>
+                        <p>
+                            <input type="email" name="semail" id="semail" class="txtb" placeholder="Email Address" orignal-title="Email Address" required/>
+                        </p>
+                        <p>
+                            <!--<input id="dob" name="sdob" style="width:100%" orignal-title="Date of Birth" required/>-->
+                            <select class="k-textbox" style="width:96%;height:25px;color:#4D4D4D">
+                                <option value="">Select Your Age</option>
+                                <script>
+                                    var age;
+                                    for(age=18;age<=70;age++)
+                                    {
+                                        document.write('<option value='+age+'>'+age+'</option>');
+                                    }
+                                    document.write(age);
+                                </script>
+                            </select>
+                        </p>
+                        <p>
+                            <input id="bldgrp" name="sstate" style="width:100%" orignal-title="Blood Group" required/>
+                            
+                        </p>
+                        <p>
+                            <input id="state" name="sstate" style="width:100%" orignal-title="State" required/>
+                        </p>
+                        <p>
+                            <input id="city" name="scity" style="width:100%" orignal-title="City" required/>
+                        </p>
+                    	<p>
+                        	<input type="text" name="scontry" id="scontry" class="txtb" value="India" disabled orignal-title="Username" required/>
+                  	  </p>
+                        <p style="margin-top:30px;">
+                            <input type="button" name="lsubmit" id="lsubmit" value="Submit" data-bind="click:signup" class="lbtn"/>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
