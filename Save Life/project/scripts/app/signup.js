@@ -3,9 +3,20 @@
     	app = global.app = global.app || {};
     
     SignupViewModel = kendo.data.ObservableObject.extend({
+        sname:'',
+        spwd:'',
+        smobile:'',
+        semail:'',
+        sage:0,
+        bldgrp:'',
+		sstate:'',
+        scity:'',
+        scontry:'India',
+        
     
         show:function(){
        	
+           app.signupService.viewModel.initializeField(); 
             //date time picker
            $("#dob").kendoDatePicker({
                animation: {
@@ -74,12 +85,21 @@
             
         },
         
+        initializeField:function(){
+            var that = this;
+            that.set("sname","");
+            that.set("spwd","");
+            that.set("smobile",0);
+            that.set("semail","");
+            that.set("sage",0);
+            that.set("bldgrp","");
+            that.set("sstate","");
+            that.set("scity","");
+        },
+        
         signup:function(){
-          /* var status = $('#signupForm').valid();
-            if(status === false)
-            {
-                return status;
-            }*/
+         //alert(this.get("sstate"));
+            console.log("value is "+this.get("sstate"));
         }
     });
     app.signupService = {

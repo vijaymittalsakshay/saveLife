@@ -68,20 +68,23 @@
 
             <div data-role="content">
                 <form id="signupForm">
-                    <div class="ldiv" style="margin-top:25px;">
+                    <div class="ldiv" id="signup" style="margin-top:25px;">
                         <p>
-                            <input type="text" name="sname" id="sname" class="txtb" placeholder="Username" orignal-title="Username" required/>
+                            <input type="text" name="sname" id="sname" class="txtb" data-bind="value:sname" placeholder="Username" orignal-title="Username" required/>
+                        </p>
+                         <p>
+                            <input type="password" name="spwd" id="spwd" class="txtb" data-bind="value:spwd" placeholder="Password" orignal-title="Password" required/>
                         </p>
                         <p>
-                            <input type="number" name="smobile" id="smobile" class="txtb" placeholder="Mobile Number" orignal-title="Mobile Number" required/>
+                            <input type="number" name="smobile" id="smobile" data-bind="value:smobile" class="txtb" placeholder="Mobile Number" maxlength="10" orignal-title="Mobile Number" required/>
                         </p>
                         <p>
-                            <input type="email" name="semail" id="semail" class="txtb" placeholder="Email Address" orignal-title="Email Address" required/>
+                            <input type="email" name="semail" id="semail" data-bind="value:semail" class="txtb" placeholder="Email Address" orignal-title="Email Address" required/>
                         </p>
                         <p>
                             <!--<input id="dob" name="sdob" style="width:100%" orignal-title="Date of Birth" required/>-->
-                            <select class="k-textbox" style="width:96%;height:25px;color:#4D4D4D">
-                                <option value="">Select Your Age</option>
+                            <select class="k-textbox" id="sage" name="sage" data-bind="value:sage" style="width:96%;height:25px;color:#4D4D4D">
+                                <option value="0" selected>Select Your Age</option>
                                 <script>
                                     var age;
                                     for(age=18;age<=70;age++)
@@ -93,20 +96,20 @@
                             </select>
                         </p>
                         <p>
-                            <input id="bldgrp" name="sstate" style="width:100%" orignal-title="Blood Group" required/>
+                            <input id="bldgrp" name="bldgrp" data-bind="value:bldgrp" style="width:100%" orignal-title="Blood Group" required/>
                             
                         </p>
                         <p>
-                            <input id="state" name="sstate" style="width:100%" orignal-title="State" required/>
+                            <input id="state" name="sstate" data-bind="value:sstate" style="width:100%" orignal-title="State" required/>
                         </p>
                         <p>
-                            <input id="city" name="scity" style="width:100%" orignal-title="City" required/>
+                            <input id="city" name="scity" data-bind="value:scity" style="width:100%" orignal-title="City" required/>
                         </p>
                     	<p>
-                        	<input type="text" name="scontry" id="scontry" class="txtb" value="India" disabled orignal-title="Username" required/>
+                        	<input type="text" name="scontry" data-bind="value:scontry" id="scontry" class="txtb" disabled orignal-title="Username" required/>
                   	  </p>
                         <p style="margin-top:30px;">
-                            <input type="button" name="lsubmit" id="lsubmit" value="Submit" data-bind="click:signup" class="lbtn"/>
+                            <input type="button" name="lsubmit"  id="lsubmit" value="Submit" data-bind="click:signup" class="lbtn"/>
                         </p>
                     </div>
                 </form>
